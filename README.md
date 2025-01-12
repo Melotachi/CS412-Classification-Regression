@@ -31,3 +31,11 @@ Since we performed well in the regression task during the first round, we contin
 In the final round, we sought to enhance our regression task by incorporating:
 - **Percentile features:** We focused on the **0.95 percentile** to account for rare posts that receive significantly higher likes, which could distort averages.
 - **Timestamp features:** Including timestamps helped mitigate the effect of very old posts, which might inaccurately influence the `like_count`.
+
+## Final Round - Classification Challenges
+Unfortunately, we tried various approaches in the final round, such as:
+- Adding **entities feature**,
+- Using **random forest** as the classifier,
+- Testing **5–10 different BERT models**.
+
+However, none of these approaches yielded better results. When comparing our predictions to the (presumably) expected results, we were unable to achieve significant improvements. As a result, we decided to use our **Round 2 classification model** for the final submission.
