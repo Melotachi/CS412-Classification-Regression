@@ -42,3 +42,38 @@ However, none of these approaches yielded better results. When comparing our pre
 
 
 **Note:** During the training phase, the `username` column in the dataset was unnamed. To resolve this issue, we renamed the column to `username`.
+
+---
+
+## Main Analysis and Important Findings
+
+### Regression Task
+1. **Media-Type Categorization**: 
+   - By categorizing posts based on their `media_type` and calculating separate average like counts for each category, we achieved significant improvement in regression accuracy.
+   - This enhancement reduced noise from mixing posts with varying engagement levels and led to a **regression error score of 660.553606** in Round 1, placing us in **5th position**.
+
+2. **Challenges with Round 2 Regression**:
+   - Reusing the same approach in Round 2 led to a drop in performance with an error score of **761.794131**. This highlighted the importance of incorporating additional features to adapt to evolving datasets.
+   - In the final round, the introduction of **percentile features** (focusing on the 0.95 percentile) and **timestamp handling** improved the robustness of the model. These features addressed outliers and the effects of older posts on the regression task.
+
+### Classification Task
+1. **Captions and Category Names**:
+   - Vectorizing post captions and combining them with the `category_name` parameter provided a strong foundation for classification. This approach achieved an **accuracy of 0.73** during internal tests in Round 1.
+
+2. **Incorporating Biographies**:
+   - Adding the `biography` field in Round 2 as an additional feature helped improve the accuracy score to **0.634361**.
+   - However, the classification task remained challenging, as the model struggled to generalize well on the test data.
+
+3. **Challenges in the Final Round**:
+   - Despite exploring **entity features**, **random forest classifiers**, and **multiple BERT models**, no significant improvements were achieved.
+   - This led us to revert to the **Round 2 classification model**, which balanced accuracy and computational efficiency.
+
+### General Insights
+- **Data Distribution and Quality**:
+  - Imbalanced data and labels with fewer examples heavily impacted classification accuracy. Filtering out classes with insufficient samples proved critical in improving performance.
+
+- **Feature Engineering**:
+  - The importance of feature engineering was evident, especially in the regression task, where categorizing posts and handling outliers had a direct impact on results.
+
+- **Adaptability**:
+  - The project's iterative nature highlighted the need to adapt models to changing data properties, as seen in the decline of regression performance between rounds.
