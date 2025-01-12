@@ -39,3 +39,6 @@ Unfortunately, we tried various approaches in the final round, such as:
 - Testing **5–10 different BERT models**.
 
 However, none of these approaches yielded better results. When comparing our predictions to the (presumably) expected results, we were unable to achieve significant improvements. As a result, we decided to use our **Round 2 classification model** for the final submission.
+
+
+**Note:** During the training phase, the `username` column in the dataset was unnamed. To resolve this issue, we renamed the column to `username`.
